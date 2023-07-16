@@ -43,3 +43,15 @@
 
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file 'noerror)
+
+;; ******************************************************
+;; ****************** customize config ******************
+;; ******************************************************
+(unless (package-installed-p 'evil)
+  (package-install 'evil))
+(require 'evil)
+(evil-mode 1) ;; enable vi-mode
+
+(set-frame-font "JetBrainsMono Nerd Font")
+
+(load-theme 'doom-gruvbox t)
