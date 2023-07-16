@@ -2,9 +2,17 @@
 ;; Emacs comes with package.el for installing packages.
 ;; Try M-x list-packages to see what's available.
 (require 'package)
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                         ("melpa-stable" . "https://stable.melpa.org/packages/")
-                         ("elpa" . "https://elpa.gnu.org/packages/")))
+
+;; (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+;;                          ("melpa-stable" . "https://stable.melpa.org/packages/")
+;;                          ("elpa" . "https://elpa.gnu.org/packages/")
+;; ))
+
+(setq package-archives
+      '(("melpa" . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/melpa/")
+        ("org"   . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/org/")
+        ("gnu"   . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/gnu/")))
+
 (package-initialize)
 
 ;; setup.el provides a macro for configuration patterns
@@ -47,10 +55,12 @@
 ;; ******************************************************
 ;; ****************** customize config ******************
 ;; ******************************************************
+
+;; enable vi-mode
 (unless (package-installed-p 'evil)
   (package-install 'evil))
 (require 'evil)
-(evil-mode 1) ;; enable vi-mode
+(evil-mode 1) 
 
 (set-frame-font "JetBrainsMono Nerd Font")
 
